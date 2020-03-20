@@ -1,21 +1,24 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import StreamCreate from "./streams/streamCreate";
+import StreamDelete from "./streams/streamDelete";
+import StreamEdit from "./streams/streamEdit";
+import StreamList from "./streams/streamList";
+import StreamShow from "./streams/streamShow";
 
-const page1 = () => {
-  return <div>one</div>;
-};
-
-const page2 = () => {
-  return <div>two</div>;
-};
+import Header from "./header";
 
 const App = () => {
   return (
-    <div>
+    <div className="ui container">
       <BrowserRouter>
         <div>
-          <Route path="/" exact component={page2} />
-          <Route path="/page1" component={page1} />
+          <Header />
+          <Route path="/" exact component={StreamList} />
+          <Route path="/streams/create" component={StreamCreate} />
+          <Route path="/streams/delete" component={StreamDelete} />
+          <Route path="/streams/edit" component={StreamEdit} />
+          <Route path="/streams/show" component={StreamShow} />
         </div>
       </BrowserRouter>
     </div>
